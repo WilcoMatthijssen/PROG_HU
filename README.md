@@ -9,13 +9,13 @@ def helloWorld:
 ```
 ___
 ## Completed assignments
-### **[assignment-InputOutput](google.com)**
+### **[assignment-InputOutput](https://github.com/WilcoMatthijssen/PROG_HU/tree/master/assignment-InputOutput)**
 * Write a program where it asks the user to fill in his/her hourly wage and worked hours. Calculate the salary and print out the salary.
 ___
 
 ## Unfinished assignments
 
-### **[assignment-NS_Trainride_price](google.com)**
+### **[assignment-NS_Trainride_price](https://github.com/WilcoMatthijssen/PROG_HU/tree/master/assignment-InputOutput)**
 * Write a function that calculates the standard rate of a trainride using distance in KM
 * Write a function that calculates the ride price using the standard rate and added discounts.
 * Write a function that test the function for calculation the trainride price.
