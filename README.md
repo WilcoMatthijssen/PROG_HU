@@ -1,4 +1,5 @@
 # PROG_HU
+Assigments for PROG Hogeschool Utrecht using Python
 
 ![python_cover](https://user-images.githubusercontent.com/57558724/68532450-8051c980-031d-11ea-83e0-5a135e4d9f4d.jpg)
 *Assigments for PROG Hogeschool Utrecht using Python*
