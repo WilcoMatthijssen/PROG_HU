@@ -1,37 +1,48 @@
-def standardFare(distanceInKM):
-    """Return the standard fare for a train ride with distance in KM."""
-    if distanceInKM <0:
-        raise ValueError("distanceInKM should be a positive")
-    if distanceInKM > 50:
-         price= 15 + distanceInKM * 0.6
-    else:
-        price= distanceInKM * 0.8
-    return price
-  
+def standard_fare_calc(distance_in_km: float) -> float:
+    """
+    Calculate the standard fare for a train ride with distance in KM.
 
-def trainFare(age, weekendRide, distanceInKM):
-    """ Returns the train fare """
-    if weekendRide:
-        if age <= 12  or age >= 65:
-            priceMultiplier=0.70
-        else:
-            priceMultiplier=0.60
+    :param distance_in_km: Distance of the train ride in km as a float.
+    :return fare: Standard fare for the train ride as a float.
+    """
+    if distance_in_km > 50:
+        fare = 15 + distance_in_km * 0.6
+    if distance_in_km > 0:
+        fare = distance_in_km * 0.8
     else:
-        if age <= 12  or age >= 65:
-            priceMultiplier=0.65
-        else:
-            priceMultiplier=1.00
-    return standardFare(distanceInKM)*priceMultiplier
+        raise ValueError("distance_in_km should be positive")
 
-def testTrainFareFunction():
-    """ Way too simple for a test but it tests if the priceMultiplier or age if statements are changed. """
-    for i in range(8, 64, 2):
-        if i <= 12  or i >= 65:
-            if trainFare(i, True, 10) != standardFare(10) * 0.70:
-                raise ValueError("trainFare function gave false return value with age: {}, weekendRide: True, distanceInKM: 10".format(i))
+    return fare
+
+
+def train_fare_calc(age: int, weekend_ride: bool, distance_in_km: float) -> float:
+    """
+    Calculate the train fare for a train ride including discounts.
+
+    :param age: Age of the person going on the train ride as an int.
+    :param weekend_ride: If the train ride is in the weekend as a bool.
+    :param distance_in_km: Distance of the train ride in km as a float.
+    :return fare: Train fare for the train ride as a float.
+    """
+    if weekend_ride:
+        if 12 <= age <= 65:
+            price_multiplier = 0.60
         else:
-            if trainFare(i, True, 10) != standardFare(10) * 0.60:
-                raise ValueError("trainFare function gave false return value with age: {}, weekendRide: True, distanceInKM: 10".format(i))
-    print("test was succesfull!")
+            price_multiplier = 0.70
+    else:
+        if 12 <= age <= 65:
+            price_multiplier = 1
+        else:
+            price_multiplier = 0.65
+
+    try:
+        fare = standard_fare_calc(distance_in_km)
+    except ValueError:
+        fare = 0
+    else:
+        fare *= price_multiplier
+
+    return fare
+
 
 
